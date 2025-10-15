@@ -1,0 +1,638 @@
+/* Root colors and fonts */
+:root {
+  --background-color: #1f2020;
+  --default-color: #ffffff;
+  --heading-color: #e87532;
+  --accent-color: #e87532;
+  --surface-color: #f8f7f4;
+  --contrast-color: #1f2020;
+  --nav-color: color-mix(in srgb, #1f2020 90%, transparent);
+  --nav-hover-color: color-mix(in srgb, #e87532 90%, transparent);
+  --nav-mobile-background-color: color-mix(in srgb, #1f2020 85%, transparent);
+  font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Global */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--background-color);
+  color: var(--default-color);
+  scroll-behavior: smooth;
+}
+
+body h1, body h2, body h3, body h4, body h5, body h6 {
+  font-family: 'Montserrat'!important;
+}
+
+body p, body a, body li, body span, body input, body button {
+  font-family: 'Inter'!important;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: transparent;
+  padding: 18px 0;
+}
+
+.header-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: color-mix(in srgb, var(--default-color), transparent 10%);
+  padding: 6px 20px;
+  border-radius: 50px;
+  box-shadow: 0 4px 18px color-mix(in srgb, var(--background-color), transparent 25%);
+}
+
+.logo .sitename {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--heading-color);
+  margin: 0;
+  font-size: 22px;
+}
+
+/* Nav */
+.navmenu ul {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navmenu a {
+  display: block;
+  padding: 10px 12px;
+  color: var(--nav-color);
+  font-weight: 500;
+}
+
+.navmenu a.active {
+  font-weight: 700;
+  color: var(--nav-hover-color, var(--accent-color));
+}
+
+/* Mobile toggle */
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+@media (max-width: 1199px) {
+  .navmenu ul {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    inset: 70px 20px 20px 20px;
+    background: var(--nav-mobile-background-color);
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: var(--nav-mobile-background-color);
+  }
+
+  body.mobile-nav-active .navmenu ul {
+    display: flex;
+  }
+
+  .mobile-toggle {
+    display: block;
+  }
+}
+
+/* Wrap */
+.wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 auto;
+}
+
+/* Hero */
+.hero {
+  padding: 20px 0px 40px 80px;
+  position: relative;
+  overflow: visible;
+}
+
+.hero-right {
+  margin-top: 50px;
+  margin-right: -100px;
+  margin-left: -40px;
+}
+
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 500px;
+  gap: 0px;
+  align-items: center;
+}
+
+@media (max-width: 991px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-right {
+    order: 2;
+  }
+  .hero-left {
+    order: 1;
+  }
+  .hero .lead {
+    font-size: 1rem;
+  }
+}
+
+.hero-left h2 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: var(--heading-color);
+  font-family: 'Questrial', sans-serif;
+}
+
+.lead {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  border-radius: 50px;
+  text-decoration: none;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  border: 2px solid var(--accent-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  color: #f8f7f4;
+}
+
+.btn-outline {
+  border: 2px solid color-mix(in srgb, var(--accent-color), transparent 25%);
+  color: var(--accent-color);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  transform: translateY(-2px);
+  color: #f8f7f4;
+}
+
+/* --- Bagian Kontak --- */
+.contact-info h3 {
+  color: var(--heading-color);
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Ikon dan teks default: putih */
+.info-item .icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 15px;
+  color: var(--default-color);
+  fill: var(--default-color);
+  margin-right: 10px;
+  transition: color 0.3s ease, fill 0.3s ease;
+}
+
+/* Teks link putih */
+.info-item a {
+  color: var(--default-color);
+  text-decoration: none;
+  font-size: 1rem;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+/* Saat hover: ikon dan teks jadi oranye */
+.info-item:hover .icon,
+.info-item:hover a {
+  color: var(--accent-color);
+  fill: var(--accent-color);
+}
+
+
+
+
+/* Hero image and shapes */
+/* --- Hero Image dengan Gradient Lembut --- */
+.hero-image {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.hero-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(232, 117, 50, 0.35) 0%,
+    rgba(232, 117, 50, 0.15) 40%,
+    transparent 70%
+  );
+  filter: blur(60px);
+  transform: scale(1);
+  animation: pulse-glow 6s ease-in-out infinite;
+  z-index: 0;
+}
+
+.hero-image img {
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
+  border-radius: 12px;
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+}
+
+/* Animasi lembut, kayak "napas" */
+@keyframes pulse-glow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.6;
+  }
+}
+
+
+
+/* Sections */
+.section {
+  padding: 60px;
+}
+
+.section-title {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.section-title h2 {
+  font-size: 2.75rem;
+  background: linear-gradient(120deg, var(--heading-color), var(--accent-color));
+  -webkit-background-clip: text;
+  color: transparent;
+  font-family: 'Questrial', sans-serif;
+  margin: 0;
+  margin-bottom: 25px;
+}
+
+.section-title p {
+  font-size: 1rem;
+  max-width: 750px;
+  margin: 12px auto 0;
+}
+
+/* Resume timeline */
+.resume .resume-block {
+  background: transparent;
+  padding: 35px;
+}
+
+.resume-block h2 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: color-mix(in srgb, var(--accent-color), transparent 10%)
+}
+
+.timeline {
+  margin-top: 20px;
+}
+
+.timeline-item {
+  display: block;
+  margin-bottom: 20px;
+}
+
+@media(min-width: 992px) {
+  .timeline {
+    position: relative;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 20%;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: color-mix(in srgb, var(--accent-color), transparent 75%);
+  }
+
+  .timeline-item {
+    display: flex;
+  }
+
+  .timeline-left {
+    width: 20%;
+    padding-right: 20px;
+    font-size: 1.2rem;
+  }
+
+  .timeline-right {
+    width: 70%;
+    padding-left: 20px;
+    font-size: 1.2rem;
+  }
+
+  .timeline-right .period{
+    display: block;
+    margin-top: -20px;
+    font-size: 1.2rem;
+  }
+
+  .timeline-right .description {
+    margin-right: -100px;
+    font-size: 1rem;
+  }
+
+  .timeline-dot {
+    margin: 25px;
+    margin-top: 33px;
+    position: absolute;
+    left: calc(20% - 30px);
+    width: 12px;
+    height: 12px;
+    background: var(--accent-color);
+    border-radius: 50%;
+  }
+}
+
+/* Portfolio grid */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* kotak lebih lebar */
+  gap: 28px;
+  justify-content: center;
+  max-width: 1200px; /* biar nggak terlalu panjang di layar besar */
+  margin: 0 auto;
+}
+
+@media(max-width: 992px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width: 576px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.section-title h2 {
+  font-size: 2.75rem;
+  margin-bottom: 25px;
+}
+
+.portfolio-card {
+  background: var(--surface-color);
+  color: var(--contrast-color);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  height: 97%;
+  box-shadow: 0 4px 18px var(--background-color); /* sedikit bayangan biar elegan */
+}
+
+.portfolio-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 22px var(--accent-color); /* efek hover lembut */
+}
+
+.portfolio-image img {
+  width: 100%;
+  height: 260px; /* sesuaikan proporsi gambar */
+  object-fit: cover;
+  display: block;
+}
+
+.portfolio-content {
+  padding: 20px;
+}
+
+.portfolio-content h3 {
+  margin: 0 0 10px;
+  color: var(--accent-color);
+  font-size: 1.2rem;
+}
+
+.portfolio .portfolio-card .portfolio-content .portfolio-skills {
+  margin: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.portfolio .portfolio-card .portfolio-content .portfolio-skills span {
+  background-color: var(--accent-color);
+  color: var(--default-color);
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.portfolio-content p{
+  font-size: 1rem;
+}
+
+.portfolio .portfolio-card .portfolio-content h3 a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.portfolio .portfolio-card .portfolio-content h3 a:hover,
+.portfolio .portfolio-card .portfolio-content h3 a:focus {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+
+/* Testimonials */
+.section-title h2 {
+  font-size: 2.75rem;
+  margin-bottom: 25px;
+}
+
+/* Certificate / Testimonials */
+.testimonials-slider {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.testimonials-slider .swiper-slide {
+  transform: scale(0.75);
+  opacity: 0.2;
+  transition: all 0.4s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.testimonials-slider .swiper-slide-active {
+  transform: scale(1);
+  opacity: 1;
+  z-index: 2;
+}
+
+.testimonials-slider .swiper-slide-prev,
+.testimonials-slider .swiper-slide-next {
+  transform: scale(0.85);
+  opacity: 0.4;
+}
+
+.testimonials-slider img {
+  width: auto;
+  max-width: 100%;
+  max-height: 600px;
+  border-radius: 8px;
+  object-fit: contain;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+  border: 1px solid color-mix(in srgb, var(--contrast-color), transparent 50%);
+  box-shadow: 0 4px 10px color-mix(in srgb, var(--contrast-color), transparent 10%), 
+              0 6px 20px color-mix(in srgb, var(--contrast-color), transparent 10%);
+}
+
+
+.testimonials-slider img:hover {
+  transform: scale(1.02);
+}
+
+/* Style pagination (titik-titik) */
+.testimonials-slider .swiper-pagination-bullet {
+  background: color-mix(in srgb, var(--accent-color), transparent 75%); /* oranye transparan */
+  opacity: 1; /* biar warnanya konsisten, bukan abu-abu */
+  transition: all 0.3s ease;
+}
+
+.testimonials-slider .swiper-pagination-bullet-active {
+  background: var(--accent-color); /* oranye penuh untuk bullet aktif */
+  transform: scale(1.2); /* sedikit lebih besar biar keliatan aktif */
+}
+
+
+.testimonials-slider {
+  padding-bottom: 60px;}
+
+.testimonials-slider .swiper-button-next,
+.testimonials-slider .swiper-button-prev {
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  background: color-mix(in srgb, var(--default-color), transparent 100%);
+  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  font-weight: bold;
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--contrast-color), transparent 50%);
+  transition: all 0.3s ease;
+}
+
+.testimonials-slider .swiper-button-next::after,
+.testimonials-slider .swiper-button-prev::after {
+  font-size: 22px;
+}
+
+.testimonials-slider .swiper-button-next:hover,
+.testimonials-slider .swiper-button-prev:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 10%);
+  color: color-mix(in srgb, var(--default-color), transparent 10%);
+  transform: translateY(-3px);
+}
+
+
+
+
+/* Footer */
+.footer {
+  padding: 30px 0;
+  background: var(--background-color);
+  color: color-mix(in srgb, var(--default-color), transparent 10%);;
+}
+
+.footer .sitename {
+  color: var(--heading-color);
+}
+
+
+/* Utilities */
+.text-center {
+  text-align: center;
+}
+
+
+/* Background putih untuk About dan Certificate */
+#resume,
+#testimonials {
+  background-color: var(--default-color);
+  color: color-mix(in srgb, var(--contrast-color), transparent 10%);
+}
+
+#resume p,
+#testimonials p,
+#resume .section-title p,
+#testimonials .section-title p {
+  color: color-mix(in srgb, var(--contrast-color), transparent 10%);
+}
+
+#resume h2,
+#portfolio h2,
+#testimonials h2 {
+  background: none;
+  color: color-mix(in srgb, var(--accent-color), transparent 10%);
+}
